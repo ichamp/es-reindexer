@@ -1,0 +1,29 @@
+{
+  "name": "es-reindexer",
+  "version": "1.0.0",
+  "description": "This script is used to reindex data. It supports reindexing data over same or different ES clusters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichamp/es-reindexer.git"
+  },
+  "keywords": [
+    "es",
+    "reindex",
+    "reindexer",
+    "elasticsearch"
+  ],
+  "author": "Siddharth Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ichamp/es-reindexer/issues"
+  },
+  "homepage": "https://github.com/ichamp/es-reindexer#readme",
+  "dependencies": {
+    "elasticsearch": "^11.0.1",
+    "util": "^0.10.3"
+  }
+}
