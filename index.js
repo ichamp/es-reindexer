@@ -24,11 +24,13 @@ var ESQUERY = require('./es_query');
 var CONFIG = require('./config.js');
 
 var esFrom = new elasticsearch.Client({
-  host: CONFIG.FROM.ES_URL
+  host: CONFIG.FROM.ES_URL,
+  requestTimeout: CONFIG.FROM.TOUT
 });
 
 var esTo = new elasticsearch.Client({
-  host: CONFIG.TO.ES_URL
+  host: CONFIG.TO.ES_URL,
+  requestTimeout: CONFIG.FROM.TOUT
 });
 
 console.log('Printing ES query used for reindexing below');
@@ -102,7 +104,7 @@ function GetAndPush(sizePerShard, sleepTimeMs) {
 
     BULK_AR = transform(response.hits.hits);
 
-    dumpESBulk(esFrom, BULK_AR, function(err, res) {
+    dumpESBulk(esTo, BULK_AR, function(err, res) {
       if (err) {
         console.log('Some error with bulk');
         console.log(err);
